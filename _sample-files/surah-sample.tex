@@ -4,9 +4,18 @@ The following strings are to be replaced by a script, in order to use this file 
 * SN = sūrah number, without leading zeros
 * SNZ = sūrah number, with leading zeros
 \end{comment}
+\begin{comment}
+The following tags are declared here:-
+license_comment_surah
+\end{comment}
 \section{Sūrah SN: <name>}
 %Insert all of the aayah files in the /SNZ directory
 \bash[stdoutFile=compiled-SN.tex]
 { shopt -s nullglob; for file in /SNZ/*.tex; do echo "\\newline \input{$file}"; done; } 
 \END
 \input{compiled-SN}
+\begin{taggedblock}{license_comment_surah}
+\includegraphics{cc_88x31}
+This work is licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}.
+\end{taggedblock}
