@@ -1,0 +1,11 @@
+\maketitle
+\section{Introduction}
+We should
+separate as much text
+as possible,
+because git only manages changes per line.
+%Insert all of the files in the test-folder directory
+\bash[stdoutFile=compiled-something.tex]
+{ shopt -s nullglob; for file in test-folder/*.tex; do echo "\\newline \input{$file}"; done; } 
+\END
+\input{compiled-something}

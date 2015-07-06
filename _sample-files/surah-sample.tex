@@ -1,0 +1,12 @@
+%This file is used by a ruby script as a template for each surah
+\begin{comment}
+The following strings are to be replaced by a script, in order to use this file as a template:-
+* SN = sūrah number, without leading zeros
+* SNZ = sūrah number, with leading zeros
+\end{comment}
+\section{Sūrah SN: <name>}
+%Insert all of the aayah files in the /SNZ directory
+\bash[stdoutFile=compiled-SN.tex]
+{ shopt -s nullglob; for file in /SNZ/*.tex; do echo "\\newline \input{$file}"; done; } 
+\END
+\input{compiled-SN}
