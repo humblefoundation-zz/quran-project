@@ -1,0 +1,21 @@
+%This file is used by a ruby script as a template for each surah
+\begin{comment}
+The following strings are to be replaced by a script, in order to use this file as a template (all upper case):-
+* sNO = sūrah number, without leading zeros
+* sZO = sūrah number, with leading zeros
+\end{comment}
+\begin{comment}
+The following tags are declared here:-
+license_comment_surah
+\end{comment}
+\section{Sūrah 1: <name>}
+%Insert all of the aayah files in the /001 directory
+\bash[stdoutFile=compiled-001.tex]
+{ shopt -s nullglob; for file in /001/*.tex; do echo "\\newline \input{$file}"; done; } 
+\END
+\input{compiled-001}
+\begin{taggedblock}{license_comment_surah}
+\includegraphics{cc_88x31}
+This work is licensed under a 
+\href{http://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}.
+\end{taggedblock}

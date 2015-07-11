@@ -1,19 +1,19 @@
 %This file is used by a ruby script as a template for each surah
 \begin{comment}
-The following strings are to be replaced by a script, in order to use this file as a template:-
-* SN = sūrah number, without leading zeros
-* SNZ = sūrah number, with leading zeros
+The following strings are to be replaced by a script, in order to use this file as a template (all upper case):-
+* sNO = sūrah number, without leading zeros
+* sZO = sūrah number, with leading zeros
 \end{comment}
 \begin{comment}
 The following tags are declared here:-
 license_comment_surah
 \end{comment}
-\section{Sūrah SN: <name>}
-%Insert all of the aayah files in the /SNZ directory
-\bash[stdoutFile=compiled-SN.tex]
-{ shopt -s nullglob; for file in /SNZ/*.tex; do echo "\\newline \input{$file}"; done; } 
+\section{Sūrah SNO: <name>}
+%Insert all of the aayah files in the /SZO directory
+\bash[stdoutFile=compiled-SZO.tex]
+{ shopt -s nullglob; for file in /SZO/*.tex; do echo "\\newline \input{$file}"; done; } 
 \END
-\input{compiled-SN}
+\input{compiled-SZO}
 \begin{taggedblock}{license_comment_surah}
 \includegraphics{cc_88x31}
 This work is licensed under a 
