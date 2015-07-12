@@ -23,11 +23,12 @@
 %***we can't use \renewcommand***
 \def\endtaggedblock{\endcomment} 
 
-\setmainlanguage[variant=british]{english}
-\setotherlanguage{arabic}
+%TODO: this is causing a conflict with something!!
+%\setmainlanguage[variant=british]{english}
+%\setotherlanguage{arabic}
 
-\usetag{license_attribution}
-\droptag{quran_com_link,quran_com_arabic_image,arabic_text_tashkeel,our_translation,variations_in_reading,translator_comments,aayah_tags,tafseer_sadi_arabic,tafseer_sadi_translation, alternative_surah_names}
+\usetag{license_attribution_main}
+\droptag{quran_com_link,quran_com_arabic_image,arabic_text_tashkeel,our_translation,variations_in_reading,translator_comments,aayah_tags,tafseer_sadi_arabic,tafseer_sadi_translation, alternative_surah_names, license_attribution_surah, license_attribution_aayah}
 
 \title{Qur'an Project}
 \author{Muhammad Tim Humble}
@@ -39,12 +40,12 @@ The following tags are declared here:-
 
 \begin{document}
 \maketitle
-%insert the license attribution file
-\input{attribution}
 %Insert all of the sūrah title files
 \bash[stdoutFile=compiled-surah-titles.tex]
-{ shopt -s nullglob; for file in /_surah-titles/*.tex; do echo "\\newline \input{$file}"; done; } 
+{ shopt -s nullglob; for file in _surah-titles/*.tex; do printf "\input{$file}\n"; done; } 
 \END
 \input{compiled-surah-titles}
+\begin{taggedblock}{license_attribution_main}
 \input{license-attribution}
+\end{taggedblock}
 \end{document}

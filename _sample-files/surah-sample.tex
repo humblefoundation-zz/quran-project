@@ -7,13 +7,16 @@ The following strings are to be replaced by a script, in order to use this file 
 \begin{comment}
 The following tags are declared here:-
 alternative_surah_names
+license_attribution_surah
 \end{comment}
 \section{Sūrah SNO: <name>}
 \begin{taggedblock}{alternative_surah_names}
 \end{taggedblock}
 %Insert all of the aayah files in the /SZO directory
 \bash[stdoutFile=compiled-SZO.tex]
-{ shopt -s nullglob; for file in /SZO/*.tex; do echo "\\newline \input{$file}"; done; } 
+{ shopt -s nullglob; for file in /SZO/*.tex; do printf "\input{$file}\n"; done;} 
 \END
 \input{compiled-SZO}
+\begin{taggedblock}{license_attribution_surah}
 \input{license-attribution}
+\end{taggedblock}
