@@ -60,7 +60,7 @@ db.execute( "select sura, max(ayah) from sura_ayah_page_text where sura = '#{opt
   surah_sample = surah_sample.gsub('SNO', s_no_str_plain)
   surah_sample = surah_sample.gsub('SZO', s_no_str)
   #write the file with the s_no_str title
-  File.write("../_surah_titles/#{s_no_str}.tex", surah_sample)
+  File.write("../_surah-titles/#{s_no_str}.tex", surah_sample)
   puts "Surah file #{s_no_str}.tex outputted successfully."
   #then from 1 to the last aayah...
   (1..max_a_no).each do |i|
