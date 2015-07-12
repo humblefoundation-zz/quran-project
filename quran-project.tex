@@ -26,8 +26,8 @@
 \setmainlanguage[variant=british]{english}
 \setotherlanguage{arabic}
 
-\usetag{license_comment_main}
-\droptag{quran_com_link,quran_com_arabic_image,arabic_text_tashkeel,our_translation,variations_in_reading,translator_comments,aayah_tags,tafseer_sadi_arabic,tafseer_sadi_translation,license_comment_aayah,license_comment_surah}
+\usetag{license_attribution}
+\droptag{quran_com_link,quran_com_arabic_image,arabic_text_tashkeel,our_translation,variations_in_reading,translator_comments,aayah_tags,tafseer_sadi_arabic,tafseer_sadi_translation}
 
 \title{Qur'an Project}
 \author{Muhammad Tim Humble}
@@ -35,34 +35,16 @@
 
 \begin{comment}
 The following tags are declared here:-
-license_comment_surah
 \end{comment}
 
 \begin{document}
 \maketitle
+%insert the license attribution file
+\input{attribution}
 %Insert all of the sūrah title files
 \bash[stdoutFile=compiled-surah-titles.tex]
 { shopt -s nullglob; for file in /_surah-titles/*.tex; do echo "\\newline \input{$file}"; done; } 
 \END
 \input{compiled-surah-titles}
-\begin{comment}
-The following strings are to be replaced by a script, in order to use this file as a template:-
-* SN = sūrah number, without leading zeros
-* SNZ = sūrah number, with leading zeros
-\end{comment}
-\begin{comment}
-The following tags are declared here:-
-license_comment_surah
-\end{comment}
-\section{Sūrah SN: <name>}
-%Insert all of the aayah files in the /SNZ directory
-\bash[stdoutFile=compiled-SN.tex]
-{ shopt -s nullglob; for file in /SNZ/*.tex; do echo "\\newline \input{$file}"; done; } 
-\END
-\input{compiled-SN}
-\begin{taggedblock}{license_comment_main}
-\includegraphics{cc_88x31}
-This work is licensed under a 
-\href{http://creativecommons.org/licenses/by-nc-nd/4.0/}{Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License}.
-\end{taggedblock}
+\input{license-attribution}
 \end{document}
