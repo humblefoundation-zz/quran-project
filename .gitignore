@@ -1,0 +1,7 @@
+*.fls
+*.log
+*.aux
+*.out
+*.sh
+*.stderr
+compiled*.tex
