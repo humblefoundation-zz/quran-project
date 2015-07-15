@@ -2,15 +2,20 @@
 \RequirePackage[l2tabu, orthodox]{nag}
 %seems to be deprecated
 %\usepackage[utf8]{inputenc}
-\usepackage{polyglossia}
 \usepackage{comment}
 \usepackage{tagging}
+%***Hack to fix problem with tagging package***
+%***we can't use \renewcommand***
+\def\endtaggedblock{\endcomment} 
 \usepackage[hyperfootnotes=false]{hyperref}
-\usepackage{bigfoot}
 \usepackage{bashful}
 \usepackage{graphicx}
 \graphicspath{{_images/}}
-
+\usepackage{polyglossia}
+%this setting needs to be here above bigfoot, otherwise we get an error from perpage
+\setmainlanguage[variant=british]{english}
+\setotherlanguage{arabic}
+\usepackage{bigfoot}
 %***Hack to switch footnotes on/off***
 %***Just remove comment on these two lines***
 %***And comment out the DeclareNewFootnote lines***
@@ -19,13 +24,6 @@
 \DeclareNewFootnote{Q}
 \DeclareNewFootnote{T}[roman]
 \MakeSortedPerPage{footnoteT}
-
-%***Hack to fix problem with tagging package***
-%***we can't use \renewcommand***
-\def\endtaggedblock{\endcomment} 
-
-\setmainlanguage[variant=british]{english}
-\setotherlanguage{Arabic}
 
 \usetag{license_attribution_main}
 \droptag{quran_com_link,quran_com_arabic_image,arabic_text_tashkeel,our_translation,variations_in_reading,translator_comments,aayah_tags,tafseer_sadi_arabic,tafseer_sadi_translation, alternative_surah_names, license_attribution_surah, license_attribution_aayah}
